@@ -1,19 +1,23 @@
 package com.dat.decorator;
 
-public class Soy extends CondimentDecorator {
+import com.dat.Beverage;
 
-    public Soy() {
+public class Soy extends CondimentDecorator {
+    private Beverage beverage;
+
+    public Soy(Beverage beverage) {
+        this.beverage = beverage;
         description = "Soy";
     }
 
     @Override
     public String getDescription() {
-        return super.getDescription() + ", " + description;
+        return beverage.getDescription() + ", " + description;
     }
 
     @Override
     public double cost() {
-        return super.cost() + 0.15d;
+        return 0.15d + beverage.cost();
     }
 }
 

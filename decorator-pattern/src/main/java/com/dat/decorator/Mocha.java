@@ -1,18 +1,23 @@
 package com.dat.decorator;
 
+import com.dat.Beverage;
+
 public class Mocha extends CondimentDecorator {
 
-    public Mocha() {
+    private Beverage beverage;
+
+    public Mocha(Beverage beverage) {
+        this.beverage = beverage;
         description = "Mocha";
     }
 
     @Override
     public String getDescription() {
-        return super.getDescription() + ", " + description;
+        return beverage.getDescription() + ", " + description;
     }
 
     @Override
     public double cost() {
-        return super.cost() + 0.20d;
+        return 0.20d + beverage.cost();
     }
 }

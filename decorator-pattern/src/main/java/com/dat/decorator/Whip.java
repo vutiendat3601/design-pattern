@@ -1,19 +1,24 @@
 package com.dat.decorator;
 
+import com.dat.Beverage;
+
 public class Whip extends CondimentDecorator {
 
-    public Whip() {
+    private Beverage beverage;
+
+    public Whip(Beverage beverage) {
+        this.beverage = beverage;
         description = "Whip";
     }
 
     @Override
     public String getDescription() {
-        return super.getDescription() + ", " + description;
+        return beverage.getDescription() + ", " + description;
     }
 
     @Override
     public double cost() {
-        return super.cost() + 0.1d;
+        return 0.1d + beverage.cost();
     }
 }
 
